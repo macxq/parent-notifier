@@ -79,9 +79,10 @@ def get_service_account_path() -> Path:
     for c in candidates:
         if c.exists() and c.is_file():
             return c
-    return DATA_DIR / (sa_env or "service_account.json")
-
-from playwright.sync_api import sync_playwright
+try:
+    from playwright.sync_api import sync_playwright
+except ImportError:
+    sync_playwright = None
 
 def load_seen():
     if SEEN_FILE.exists():
@@ -855,6 +856,9 @@ def run():
     show_all = args.last is not None
     fetch_limit = args.last if args.last else 20
 
+    if not sync_playwright:
+        print("[!] BŁĄD: Brak biblioteki playwright. Zainstaluj: pip install playwright")
+        return
 
     with sync_playwright() as p:
         students = None

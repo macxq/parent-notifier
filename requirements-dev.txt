@@ -1,0 +1,3 @@
+# Narzędzia deweloperskie i CI
+pytest>=8.0.0
+pylint>=3.0.0

@@ -3,6 +3,8 @@
 > **Inteligentny, prywatny asystent i centrum powiadomień dla rodziców uczniów.**  
 > Automatyzuje pobieranie wiadomości z dzienników elektronicznych, filtruje szum informacyjny z pomocą AI, wysyła czytelne zestawienia e-mail oraz synchronizuje zebrania i wycieczki z Kalendarzem Google.
 
+[![CI - Lint & Unit Tests](https://github.com/macxq/parent-notifier/actions/workflows/ci.yml/badge.svg)](https://github.com/macxq/parent-notifier/actions/workflows/ci.yml)
+[![Docker Build & Smoke Test](https://github.com/macxq/parent-notifier/actions/workflows/docker-build.yml/badge.svg)](https://github.com/macxq/parent-notifier/actions/workflows/docker-build.yml)
 ![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
 ![Architecture](https://img.shields.io/badge/Arch-ARM64%20%7C%20x86__64-success)
@@ -175,6 +177,27 @@ docker exec -it parent_notifier python3 vulcan_messages.py --reset-calendar
 # Reset bazy odebranych wiadomości (skrypt pobierze najnowsze ponownie jako nowe)
 docker exec -it parent_notifier python3 vulcan_messages.py --reset
 ```
+
+---
+
+## 🧪 Testy jednostkowe i Jakość kodu (CI)
+
+Projekt zawiera wbudowany zestaw testów jednostkowych weryfikujących logikę czyszczenia treści HTML, obsługę pamięci podręcznej i wolumenów, formatowanie terminów kalendarza oraz zachowanie AI:
+
+```bash
+# Uruchomienie testów lokalnie (standardowy Python):
+python3 -m unittest discover tests
+
+# Lub za pomocą Pytest (po zainstalowaniu requirements-dev.txt):
+pytest tests/ -v
+
+# Sprawdzenie jakości kodu z Pylint:
+pylint --rcfile=.pylintrc vulcan_messages.py scheduler.py tests/
+```
+
+W repozytorium skonfigurowane są akcje **GitHub Actions**:
+- **CI**: automatyczne uruchamianie `pylint` oraz `pytest` przy każdym commicie i Pull Requeście.
+- **Docker Build**: automatyczna weryfikacja budowania obrazu Docker i test uruchomieniowy (*smoke test*).
 
 ---
 
