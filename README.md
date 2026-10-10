@@ -172,19 +172,19 @@ Możesz w każdej chwili wywołać skrypt z poziomu kontenera (lub lokalnie), ab
 
 ```bash
 # Test połączenia i uprawnień do Kalendarza Google
-docker exec -it parent_notifier python3 vulcan_messages.py --test-calendar
+docker exec -it parent_notifier python3 src/vulcan_messages.py --test-calendar
 
 # Podgląd N ostatnich wiadomości w terminalu (bez wysyłki e-maili)
-docker exec -it parent_notifier python3 vulcan_messages.py --last 5 --no-email
+docker exec -it parent_notifier python3 src/vulcan_messages.py --last 5 --no-email
 
 # Podgląd wyłącznie wiadomości nieprzeczytanych w eduVULCAN
-docker exec -it parent_notifier python3 vulcan_messages.py --unread
+docker exec -it parent_notifier python3 src/vulcan_messages.py --unread
 
 # Wyczyszczenie pamięci dodanych wydarzeń kalendarza (pozwala przetestować ponowne dodanie)
-docker exec -it parent_notifier python3 vulcan_messages.py --reset-calendar
+docker exec -it parent_notifier python3 src/vulcan_messages.py --reset-calendar
 
 # Reset bazy odebranych wiadomości (skrypt pobierze najnowsze ponownie jako nowe)
-docker exec -it parent_notifier python3 vulcan_messages.py --reset
+docker exec -it parent_notifier python3 src/vulcan_messages.py --reset
 ```
 
 ---
@@ -201,7 +201,7 @@ python3 -m unittest discover tests
 pytest tests/ -v
 
 # Sprawdzenie jakości kodu z Pylint:
-pylint --rcfile=.pylintrc vulcan_messages.py scheduler.py tests/
+pylint --rcfile=.pylintrc src/ tests/
 ```
 
 W repozytorium skonfigurowane są akcje **GitHub Actions**:

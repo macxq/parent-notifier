@@ -28,8 +28,8 @@ jobs:
 
       - name: Run Pylint
         run: |
-          pylint --rcfile=.pylintrc vulcan_messages.py scheduler.py tests/
+          PYTHONPATH=src pylint --rcfile=.pylintrc src/ tests/
 
       - name: Run Unit Tests (Pytest)
         run: |
-          pytest tests/ -v
+          PYTHONPATH=src pytest tests/ -v

@@ -8,7 +8,12 @@ import os
 import subprocess
 import time
 from datetime import datetime
+import sys
+from pathlib import Path
 import schedule
+
+SRC_DIR = Path(__file__).resolve().parent
+VULCAN_SCRIPT = SRC_DIR / "vulcan_messages.py"
 
 # Interwał sprawdzania: domyślnie 5 minut
 CHECK_INTERVAL_MINUTES = int(os.getenv("CHECK_INTERVAL_MINUTES", "5"))
@@ -22,7 +27,7 @@ def run_check():
 
     print(f"[{now.strftime('%Y-%m-%d %H:%M:%S')}] Sprawdzanie eduVULCAN...")
     try:
-        res = subprocess.run(["python3", "vulcan_messages.py"], capture_output=False, check=False)
+        res = subprocess.run([sys.executable, str(VULCAN_SCRIPT)], capture_output=False, check=False)
         if res.returncode != 0:
             print(f"[!] Skrypt zakończył się kodem błędu: {res.returncode}")
     except Exception as e:

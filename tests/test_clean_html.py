@@ -1,4 +1,8 @@
+import sys
+from pathlib import Path
 import unittest
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 from vulcan_messages import clean_html
 
 class TestCleanHtml(unittest.TestCase):

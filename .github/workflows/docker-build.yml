@@ -24,4 +24,4 @@ jobs:
 
       - name: Run container smoke test
         run: |
-          docker run --rm parent-notifier:ci-test python3 vulcan_messages.py --help
+          docker run --rm parent-notifier:ci-test python3 src/vulcan_messages.py --help

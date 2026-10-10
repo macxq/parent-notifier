@@ -6,10 +6,11 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Kopiowanie plików aplikacji
-COPY vulcan_messages.py scheduler.py ./
+# Kopiowanie kodu aplikacji
+COPY src/ ./src/
 
 # Wymuszenie natychmiastowego buforowania wyjścia logów (ważne dla docker logs)
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app/src
 
-CMD ["python3", "scheduler.py"]
+CMD ["python3", "src/scheduler.py"]
