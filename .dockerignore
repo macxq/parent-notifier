@@ -1,0 +1,13 @@
+.git
+.gitignore
+__pycache__
+*.pyc
+*.pyo
+venv
+.env
+seen_messages.json
+storage_state.json
+students_cache.json
+added_calendar_events.json
+session.json
+playwright_state.json

@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  parent-notifier:
+    build: .
+    container_name: parent_notifier
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # Pamięć sesji, baza przetworzonych wiadomości i kalendarza w jednym katalogu
+      - ./data:/app/data
+    environment:
+      - TZ=Europe/Warsaw
+      - CHECK_INTERVAL_MINUTES=5
+      - DATA_DIR=/app/data

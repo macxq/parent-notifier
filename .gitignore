@@ -1,0 +1,33 @@
+# Środowisko i dane poufne
+.env
+*.env.local
+
+# Dane sesji i pamięć skryptu (zawierają dane osobowe i tokeny)
+data/
+storage_state.json
+students_cache.json
+seen_messages.json
+added_calendar_events.json
+session.json
+playwright_state.json
+test_storage.json
+*.jsonl
+*service_account*.json
+*credentials*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# Systemowe i edytory
+.DS_Store
+.idea/
+.vscode/
+*.swp
