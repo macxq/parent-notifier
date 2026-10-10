@@ -38,8 +38,8 @@ Projekt został zaprojektowany modularnie z myślą o unifikacji powiadomień ze
   - **Zgodność ze standardem OpenAI API** – możliwość podpięcia dowolnego dostawcy chmurowego (OpenAI GPT-4o-mini, Anthropic Claude, Groq, Mistral, OpenRouter) obok wbudowanego Google Gemini Flash.
 - [ ] **Lokalny panel zarządzania (Web UI)** – wbudowany lekki interfejs w przeglądarce:
   - **Google OAuth2 (Authorization Code Flow)** – autoryzacja konta Google jednym kliknięciem:
-    - Bezpośrednie, natywne powiadomienia dzwoneczkiem na smartfonie rodzica (bez ograniczeń kont usług).
-    - Wybór docelowego kalendarza z listy rozwijanej zamiast wpisywania technicznych ID.
+    - **Kalendarz Google**: bezpośrednie, natywne powiadomienia dzwoneczkiem na smartfonie rodzica oraz wybór kalendarza z listy rozwijanej zamiast wpisywania technicznych ID.
+    - **Poczta Gmail API**: automatyczna wysyłka e-maili przez oficjalne Gmail API (`gmail.send`) – koniec z koniecznością włączania haseł do aplikacji (App Passwords) i konfiguracji SMTP! Jedna autoryzacja załatwia Kalendarz i Pocztę.
   - **Kreator konfiguracji** – prosta konfiguracja `.env`, test wysyłki e-mail oraz test połączenia z wybranym providerem AI.
   - **Dashboard wiadomości** – podgląd odebranych wiadomości, statusu synchronizacji i logów na żywo.
 - [ ] **Librus Synergia** – modułowe wsparcie dla kolejnego popularnego dziennika elektronicznego w Polsce.
