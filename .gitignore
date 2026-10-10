@@ -25,6 +25,7 @@ env/
 venv/
 ENV/
 .venv/
+.pytest_cache/
 
 # Systemowe i edytory
 .DS_Store

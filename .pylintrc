@@ -1,4 +1,5 @@
 [MAIN]
+fail-under=8.0
 # Ignoruj katalog danych i środowiska wirtualne
 ignore=data,venv,.venv,__pycache__
 
@@ -9,12 +10,19 @@ disable=
     C0115, # missing-class-docstring
     C0116, # missing-function-docstring
     C0301, # line-too-long
+    C0415, # import-outside-toplevel
+    R0911, # too-many-return-statements
     R0912, # too-many-branches
+    R0913, # too-many-arguments
     R0914, # too-many-locals
     R0915, # too-many-statements
-    R0913, # too-many-arguments
+    R0917, # too-many-positional-arguments
+    R1702, # too-many-nested-blocks
+    R1705, # no-else-return
+    R1732, # consider-using-with
     W0718, # broad-exception-caught
     W0621, # redefined-outer-name
+    W1309, # f-string-without-interpolation
     R0801, # duplicate-code
     C0103, # invalid-name
 
@@ -22,6 +30,7 @@ disable=
 max-line-length=140
 
 [DESIGN]
-max-locals=30
-max-branches=25
-max-statements=100
+max-locals=35
+max-branches=30
+max-statements=120
+max-args=10

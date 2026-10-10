@@ -79,6 +79,8 @@ def get_service_account_path() -> Path:
     for c in candidates:
         if c.exists() and c.is_file():
             return c
+    return DATA_DIR / (sa_env or "service_account.json")
+
 try:
     from playwright.sync_api import sync_playwright
 except ImportError:
