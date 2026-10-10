@@ -33,11 +33,14 @@ Codzienność rodzica w polskiej szkole to nieustanne logowanie się do dziennik
 Projekt został zaprojektowany modularnie z myślą o unifikacji powiadomień ze wszystkich popularnych systemów szkolnych w Polsce:
 
 - [x] **eduVULCAN** – pełne wsparcie dla kont rodziców z obsługą wielu dzieci, sesją SSO i automatycznym odświeżaniem tokenów.
+- [ ] **Uniwersalny silnik AI (Dowolny provider + Self-Hosted LLM)**:
+  - **100% lokalne modele (Self-Hosted)** – integracja z **Ollama**, **LocalAI**, **vLLM** czy **LM Studio** (np. Llama 3.2, Mistral, Gemma 2, Qwen). Treść wiadomości ze szkoły jest analizowana w całości w Twojej sieci domowej i nigdy nie opuszcza Twojego serwera.
+  - **Zgodność ze standardem OpenAI API** – możliwość podpięcia dowolnego dostawcy chmurowego (OpenAI GPT-4o-mini, Anthropic Claude, Groq, Mistral, OpenRouter) obok wbudowanego Google Gemini Flash.
 - [ ] **Lokalny panel zarządzania (Web UI)** – wbudowany lekki interfejs w przeglądarce:
   - **Google OAuth2 (Authorization Code Flow)** – autoryzacja konta Google jednym kliknięciem:
     - Bezpośrednie, natywne powiadomienia dzwoneczkiem na smartfonie rodzica (bez ograniczeń kont usług).
     - Wybór docelowego kalendarza z listy rozwijanej zamiast wpisywania technicznych ID.
-  - **Kreator konfiguracji** – prosta konfiguracja `.env`, test wysyłki e-mail i test klucza Google Gemini z poziomu przeglądarki.
+  - **Kreator konfiguracji** – prosta konfiguracja `.env`, test wysyłki e-mail oraz test połączenia z wybranym providerem AI.
   - **Dashboard wiadomości** – podgląd odebranych wiadomości, statusu synchronizacji i logów na żywo.
 - [ ] **Librus Synergia** – modułowe wsparcie dla kolejnego popularnego dziennika elektronicznego w Polsce.
 - [ ] **Dodatkowe kanały powiadomień** – integracja z Telegram Botem, Discord Webhooks oraz Gotify / ntfy.
@@ -51,7 +54,7 @@ flowchart LR
     A[Harmonogram / Cron] -->|co 5 min| B[parent-notifier]
     B -->|Błyskawiczne API ~0.5s| C[eduVULCAN]
     C -->|Nowe wiadomości| D[Filtrowanie duplikatów]
-    D --> E[Google Gemini AI]
+    D --> E[Silnik AI: Gemini / Ollama / OpenAI]
     E -->|Streszczenie + Priorytet| F[Powiadomienie E-mail HTML]
     E -->|Wykryte terminy i wydarzenia| G[Kalendarz Google]
 ```
