@@ -33,8 +33,14 @@ Codzienność rodzica w polskiej szkole to nieustanne logowanie się do dziennik
 Projekt został zaprojektowany modularnie z myślą o unifikacji powiadomień ze wszystkich popularnych systemów szkolnych w Polsce:
 
 - [x] **eduVULCAN** – pełne wsparcie dla kont rodziców z obsługą wielu dzieci, sesją SSO i automatycznym odświeżaniem tokenów.
-- [ ] **Librus Synergia** – *w planach* (modułowa architektura konektorów).
-- [ ] **Dodatkowe kanały powiadomień** – *w planach* (Telegram Bot, Discord Webhook, Gotify / ntfy).
+- [ ] **Lokalny panel zarządzania (Web UI)** – wbudowany lekki interfejs w przeglądarce:
+  - **Google OAuth2 (Authorization Code Flow)** – autoryzacja konta Google jednym kliknięciem:
+    - Bezpośrednie, natywne powiadomienia dzwoneczkiem na smartfonie rodzica (bez ograniczeń kont usług).
+    - Wybór docelowego kalendarza z listy rozwijanej zamiast wpisywania technicznych ID.
+  - **Kreator konfiguracji** – prosta konfiguracja `.env`, test wysyłki e-mail i test klucza Google Gemini z poziomu przeglądarki.
+  - **Dashboard wiadomości** – podgląd odebranych wiadomości, statusu synchronizacji i logów na żywo.
+- [ ] **Librus Synergia** – modułowe wsparcie dla kolejnego popularnego dziennika elektronicznego w Polsce.
+- [ ] **Dodatkowe kanały powiadomień** – integracja z Telegram Botem, Discord Webhooks oraz Gotify / ntfy.
 
 ---
 
